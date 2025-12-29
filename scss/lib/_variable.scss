@@ -1,0 +1,35 @@
+// Variables
+
+// Font
+$font-family-base: 'Roboto Slab', serif;
+$font-family-monospace: 'Courier', monospace;
+
+// Background color
+$background: #F0EFE7;
+$bg-light: #E9E8E0; // Code block background updated to user request
+$bg-quote: #F0EFE7; // New variable for blockquote
+$bg-content: #ffffff; // New variable for content area
+$bg-sidebar: #F7F7F3; // New variable for sidebar
+
+// text color
+$text: #4E443C;
+$text-light: #777; 
+$text-description: #9a9994; // User requested color
+$text-header: #F14E32;
+
+// link
+$link: #0388A6;
+$hover: darken($link, 10%);
+
+// border
+$border: #EFEEE6;
+
+// button
+$btn: #F14E32;
+$btn-hover: darken($btn, 5%);
+
+// Media Queries
+$mq-xs: "(max-width: 480px)";
+$mq-sm: "(min-width: 768px)";
+$mq-md: "(min-width: 992px)";
+$mq-lg: "(min-width: 1200px)";
