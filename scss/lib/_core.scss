@@ -210,9 +210,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 .entry-title {
     margin: 0 0 .3em;
-    font-size: 1.8rem; // Increased from 1.5rem
+    font-size: 2rem;
     @media #{$mq-md} {
-        font-size: 2rem; // Increased from 1.6rem
+        font-size: 2rem;
     }
     a {
         color: $text; // #4E443C
@@ -269,16 +269,18 @@ h1,h2,h3,h4,h5,h6 {
     h4,
     h5,
     h6 {
-        margin: 1.4em 0 0.8em 0; // Increased top margin slightly
+        margin: 1.4em 0 0.8em 0;
     }
     h1 {
         font-size: 1.5rem;
+        border-bottom: 1px solid $border;
         @media #{$mq-md} {
             font-size: 1.7rem;
         }
     }
     h2 {
         font-size: 1.4rem;
+        border-bottom: 1px solid $border;
         @media #{$mq-md} {
             font-size: 1.5rem;
         }
@@ -378,7 +380,7 @@ h1,h2,h3,h4,h5,h6 {
         margin: 0 2px;
         padding: 0px 5px;
         background-color: $bg-light;
-        color: $text-header; // Orange text for inline code
+        color: $text-header;
         border-radius: 3px;
     }
     hr {
@@ -554,7 +556,8 @@ h1,h2,h3,h4,h5,h6 {
 
 // Override for Links and Recent Entries (User requested bullets and tighter spacing)
 .hatena-module-links,
-.hatena-module-recent-entries {
+.hatena-module-recent-entries,
+.hatena-module-entries-access-ranking {
     .hatena-urllist {
         list-style-type: disc;
         padding-left: 1.5em; // Space for bullets
