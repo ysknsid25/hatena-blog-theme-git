@@ -4,7 +4,7 @@ import autoprefixer from "autoprefixer";
 export default defineConfig({
   build: {
     rollupOptions: {
-      input: ["scss/boilerplate.scss"],
+      input: ["scss/boilerplate.scss", "scss/boilerplate-dark.scss"],
       output: {
         assetFileNames: ({ name }) => name,
       },

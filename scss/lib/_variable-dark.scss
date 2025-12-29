@@ -1,0 +1,35 @@
+// Variables (Dark Mode)
+
+// Font
+$font-family-base: 'Roboto Slab', serif;
+$font-family-monospace: 'Courier', monospace;
+
+// Background color
+$background: #2A2A2A;
+$bg-light: #2A2A2A;
+$bg-quote: #2A2A2A;
+$bg-content: #333333;
+$bg-sidebar: #333333;
+
+// text color
+$text: #B3B1B1;
+$text-light: #B3B1B1;
+$text-description: #BDBBB0;
+$text-header: #D7834F; // Slightly lighter for contrast
+
+// link
+$link: #D7834F;
+$hover: lighten($link, 10%);
+
+// border
+$border: #555555;
+
+// button
+$btn: #D7834F;
+$btn-hover: lighten($btn, 5%);
+
+// Media Queries
+$mq-xs: "(max-width: 480px)";
+$mq-sm: "(min-width: 768px)";
+$mq-md: "(min-width: 992px)";
+$mq-lg: "(min-width: 1200px)";

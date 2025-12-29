@@ -1,0 +1,17 @@
+@charset "utf-8";
+/*
+  Theme: Git (Dark)
+  Author: Kanon [id:ysknsid25]
+  Responsive: yes
+  Description:
+    Git Theme for Hatena Blog (Dark Mode)
+  Released under the MIT License.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+@import "normalize.css";
+
+// Load Dark Mode Variables
+@import "./lib/_variable-dark";
+// Load Core Styles
+@import "./lib/_core";
