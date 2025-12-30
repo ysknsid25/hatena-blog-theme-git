@@ -277,12 +277,22 @@ h1,h2,h3,h4,h5,h6 {
         @media #{$mq-md} {
             font-size: 1.7rem;
         }
+        &::before {
+            content: "# ";
+            color: $text-header-symbol-color;
+            font-size: 1.3rem;
+        }
     }
     h2 {
         font-size: 1.4rem;
         border-bottom: 1px solid $border;
         @media #{$mq-md} {
             font-size: 1.5rem;
+        }
+        &::before {
+            content: "## ";
+            color: $text-header-symbol-color;
+            font-size: 1.2rem;
         }
     }
     h3 {

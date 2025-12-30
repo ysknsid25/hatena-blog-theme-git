@@ -17,6 +17,7 @@ $text-light: #B3B1B1;
 $text-description: #BDBBB0;
 $text-header: #D7834F; // Slightly lighter for contrast
 $text-code: #D7834F;
+$text-header-symbol-color: lighten($text-header, 10%);
 
 // link
 $link: #D7834F;
