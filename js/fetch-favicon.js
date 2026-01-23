@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.entry-content a');
 
     links.forEach(function(link) {
+      if (link.closest('.hatena-asin-detail')) {
+          return;
+      }
       if(link.href.startsWith('https://d.hatena.ne.jp/keyword')){
           return
       }
