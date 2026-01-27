@@ -200,6 +200,9 @@ h1,h2,h3,h4,h5,h6 {
 .date {
     margin-bottom: .5em;
     font-size: .9rem;
+    display: flex; // Use flexbox
+    justify-content: space-between; // Align items to edges
+    align-items: baseline; // Align text baselines
     a {
         color: $text-light;
         text-decoration: none;
@@ -247,6 +250,11 @@ h1,h2,h3,h4,h5,h6 {
             background-color: darken($bg-content, 2%);
         }
     }
+}
+.read-time {
+    color: $text-light;
+    font-size: .75rem;
+    // Removed text-align and margin-top as they are handled by flex parent
 }
 
 /* 「編集する」ボタン */
