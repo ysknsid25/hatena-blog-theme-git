@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="{BlogLanguage}">
+    <!-- ここで BlogLanguage を指定すると言語を指定することができます -->
+    <!-- 言語に適した改行の処理に影響があるため指定を推奨します -->
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            :root {
+                --bg-main: #fff;
+                --bg-secondary: #003368;
+                --text-main: #003368;
+                --text-back: #d4e3f0;
+                --content-rounded: 12px;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: var(--bg-secondary);
+                color: var(--text-main);
+                font-weight: normal;
+                font-family: "Noto Sans CJK JP";
+                box-sizing: border-box;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                padding: 24px 24px;
+                line-height: 1.4;
+                word-break: break-word;
+            }
+
+            /* カテゴリによるカスタマイズ */
+            /* 後述の通り、変数を使ってカテゴリのclassを付与すると
+      カテゴリごとにデザインをカスタマイズすることができます */
+            body.category-日記 {
+                background-color: #fff;
+            }
+
+            /* コンテンツ部分の共通設定 */
+            body > div {
+                background-color: var(--bg-main);
+            }
+            body > div:first-child {
+                border-radius: var(--content-rounded) var(--content-rounded) 0 0;
+            }
+            body > div:last-child {
+                border-radius: 0 0 var(--content-rounded) var(--content-rounded);
+            }
+
+            /* ヘッダの設定 */
+            .header {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 18px;
+            }
+            .header > :first-child {
+                margin-left: 24px;
+            }
+            .header > :last-child {
+                margin-right: 24px;
+            }
+            .header .base {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .icon > svg,
+            .icon > img {
+                border-radius: 50%;
+                width: 64px;
+                margin-right: 12px;
+            }
+            .blog-title {
+                max-width: 60%;
+            }
+            .blog-title .title {
+                font-size: 48px;
+                font-weight: bold;
+                color: var(--text-main);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .spacer {
+                flex-grow: 1;
+            }
+            .category {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                max-width: 25%;
+            }
+            .category span {
+                display: block;
+                box-sizing: border-box;
+                padding: 2px 12px;
+                border-radius: 8px;
+                background-color: var(--text-back);
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 30px;
+                line-height: 1.3;
+                font-weight: bold;
+                color: var(--text-main);
+            }
+            .category span:empty {
+                display: none;
+            }
+
+            /* メインコンテンツの設定 */
+            .main-wrapper {
+                flex: 1;
+                width: 100%;
+                display: flex;
+                padding-bottom: 56px; /* Xのシェア時には、アイキャッチの下部に
+        タイトル要素が重ねて表示されるため空白を用意しておくことを推奨します */
+            }
+            .main {
+                width: 75%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 20px auto 8px;
+                overflow: hidden;
+                text-align: center;
+            }
+            .entry-title {
+                display: -webkit-box;
+                -webkit-line-clamp: 4; /* 行数の上限 */
+                line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
+                color: var(--text-main);
+                font-size: 56px;
+                line-height: 1.3;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body class="category-{FirstCategory}">
+        <!-- 上記のようにclassを指定することで、例えばある特定のカテゴリのみ
+    背景色や文字色の変更などデザインを変更する、という調整を行うことができます -->
+        <div class="header">
+            <div class="icon">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="90"
+                    height="90"
+                    viewBox="0 0 90 90"
+                >
+                    <path
+                        d="M45,90A45,45,0,1,1,90,45,45.05,45.05,0,0,1,45,90ZM45,5.723A39.278,39.278,0,1,0,84.281,45,39.322,39.322,0,0,0,45,5.723Z"
+                        fill="#333"
+                    ></path>
+                    <path
+                        d="M50.241,22.78a63.54,63.54,0,0,1-4.22-11.3V43.349a2.938,2.938,0,1,1-1.879-.051V11.442A63.6,63.6,0,0,1,39.914,22.78a115.111,115.111,0,0,1-7.739,13.113l2.746,37.579s2.61,2.913,10.151,2.916h.01c7.54,0,10.151-2.916,10.151-2.916l2.746-37.579A115.02,115.02,0,0,1,50.241,22.78Z"
+                        fill="#333"
+                    ></path>
+                </svg>
+                <!-- SVGかbase64化した画像のみ挿入することが可能です -->
+            </div>
+            <div class="blog-title">
+                <div class="title">{BlogTitle}</div>
+            </div>
+            <div class="spacer"></div>
+            <div class="category">
+                <span>{FirstCategory}</span>
+            </div>
+        </div>
+        <div class="main-wrapper">
+            <div class="main">
+                <div class="entry-title">{Title}</div>
+            </div>
+        </div>
+    </body>
+</html>
