@@ -12,36 +12,35 @@
         </a>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const originalBtns = document.querySelectorAll(
-                    '[name="subscribe-original"]',
+                const targets = document.querySelectorAll(
+                    '[name="subscribe-original"], .hatena-module-profile, .hatena-module-category, .hatena-module-archive, .hatena-module-links',
                 );
                 const floatBtn = document.querySelector(".subscribe-float-btn");
-                const visibleBtns = new Set();
+                const visibleElements = new Set();
 
-                if (originalBtns.length > 0 && floatBtn) {
+                if (targets.length > 0 && floatBtn) {
                     const observer = new IntersectionObserver(
                         (entries) => {
                             entries.forEach((entry) => {
                                 if (entry.isIntersecting) {
-                                    visibleBtns.add(entry.target);
+                                    visibleElements.add(entry.target);
                                 } else {
-                                    visibleBtns.delete(entry.target);
+                                    visibleElements.delete(entry.target);
                                 }
                             });
 
-                            if (visibleBtns.size > 0) {
-                                floatBtn.classList.add("hidden");
+                            if (visibleElements.size > 0) {
+                                floatBtn.classList.remove("visible");
                             } else {
-                                floatBtn.classList.remove("hidden");
+                                floatBtn.classList.add("visible");
                             }
                         },
-                        {
-                            root: null,
-                            threshold: 0,
-                        },
+                        { threshold: 0 },
                     );
 
-                    originalBtns.forEach((btn) => observer.observe(btn));
+                    targets.forEach((el) => observer.observe(el));
+                } else if (floatBtn) {
+                    floatBtn.classList.add("visible");
                 }
             });
         </script>
