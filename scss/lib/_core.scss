@@ -387,7 +387,7 @@ h1,h2,h3,h4,h5,h6 {
         & > code {
             margin: 0;
             padding: 0;
-            white-space: pre;
+            white-space: inherit;
             border: none;
             background-color: transparent;
             font-family: $font-family-monospace;
@@ -400,6 +400,8 @@ h1,h2,h3,h4,h5,h6 {
         background-color: $bg-light;
         color: $text-code;
         border-radius: 3px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     hr {
         width: 50%;
