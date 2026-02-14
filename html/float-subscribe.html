@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <a
+            href="https://blog.hatena.ne.jp/ysknsid25/karanohako.hatenablog.jp/subscribe?utm_source=blogs_entry_footer&utm_campaign=subscribe_blog&utm_medium=button"
+            class="subscribe-float-btn"
+        >
+            読者になりませんか？👀
+        </a>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const originalBtns = document.querySelectorAll(
+                    '[name="subscribe-original"]',
+                );
+                const floatBtn = document.querySelector(".subscribe-float-btn");
+                const visibleBtns = new Set();
+
+                if (originalBtns.length > 0 && floatBtn) {
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    visibleBtns.add(entry.target);
+                                } else {
+                                    visibleBtns.delete(entry.target);
+                                }
+                            });
+
+                            if (visibleBtns.size > 0) {
+                                floatBtn.classList.add("hidden");
+                            } else {
+                                floatBtn.classList.remove("hidden");
+                            }
+                        },
+                        {
+                            root: null,
+                            threshold: 0,
+                        },
+                    );
+
+                    originalBtns.forEach((btn) => observer.observe(btn));
+                }
+            });
+        </script>
+    </body>
+</html>
