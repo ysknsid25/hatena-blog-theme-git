@@ -750,13 +750,6 @@ code {
 }
 
 /* Subscribe Button */
-.subscribe-container-side {
-    text-align: center;
-    font-family:
-        "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Meiryo",
-        sans-serif;
-}
-
 .subscribe-container {
     border: 2px solid $text-header;
     padding: 32px 24px;
@@ -827,52 +820,48 @@ code {
     }
 }
 
-/* Floating Subscribe Button (Mobile Only) */
+/* Floating Subscribe Button */
 .subscribe-float-btn {
-    display: none;
-    
-    @media #{$mq-xs} {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 45%;
-        max-width: 180px;
-        height: 33px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #ffffff !important;
-        background-color: $btn;
-        text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45%;
+    max-width: 180px;
+    height: 33px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff !important;
+    background-color: $btn;
+    text-decoration: none;
+    border-radius: 16.5px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         border-radius: 16.5px;
-        z-index: 1000;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        background-color: $btn;
+        z-index: -1;
+        animation: pulse-ripple 2s infinite;
+    }
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 16.5px;
-            background-color: $btn;
-            z-index: -1;
-            animation: pulse-ripple 2s infinite;
-        }
+    &.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, 20px);
+    }
 
-        &.hidden {
-            opacity: 0;
-            pointer-events: none;
-            transform: translate(-50%, 20px);
-        }
-
-        &:hover {
-            opacity: 0.9;
-        }
+    &:hover {
+        opacity: 0.9;
     }
 }
