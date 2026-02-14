@@ -10,7 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const text = content.textContent.trim();
             const length = text.length;
 
-            const minutes = Math.ceil(length / 500);
+            let minutes;
+            if(length < 5000){
+                minutes = 3;
+            }else if(length < 10000){
+                minutes = 5;
+            }else if(length < 20000){
+                minutes = 10;
+            }else if(length < 30000){
+                minutes = 15;
+            }else{
+                minutes = Math.ceil(length / 500);
+            }
 
             const readTimeDiv = document.createElement('div');
             readTimeDiv.className = 'read-time';
