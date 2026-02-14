@@ -748,3 +748,81 @@ code {
         display: inline-block;
     }
 }
+
+/* Subscribe Button */
+.subscribe-container-side {
+    text-align: center;
+    font-family:
+        "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Meiryo",
+        sans-serif;
+}
+
+.subscribe-container {
+    border: 2px solid $text-header;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 600px;
+    font-family:
+        "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Meiryo",
+        sans-serif;
+}
+
+.subscribe-text {
+    color: $text;
+    margin-bottom: 24px;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.subscribe-button-wrapper {
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.subscribe-button {
+    background-color: $btn;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 12px 36px;
+    border-radius: 30px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 18px;
+    transition: opacity 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+.subscribe-button:hover {
+    opacity: 0.8;
+}
+
+.subscribe-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: $btn;
+    z-index: -1;
+    animation: pulse-ripple 2s infinite;
+}
+
+@keyframes pulse-ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
