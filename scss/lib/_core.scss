@@ -824,6 +824,68 @@ code {
     animation: pulse-ripple 2s infinite;
 }
 
+/* Sponsor/Tip CTA */
+.tip-container {
+    border: 2px solid #EA4AAA;
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 600px;
+    font-family:
+        "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Meiryo",
+        sans-serif;
+}
+
+.tip-text {
+    color: $text;
+    margin-bottom: 24px;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.tip-btn-wrapper {
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.tip-btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #EA4AAA;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 12px 36px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: opacity 0.2s;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+        background-color: #EA4AAA;
+        z-index: -1;
+        animation: pulse-ripple 2s infinite;
+    }
+}
+
 @keyframes pulse-ripple {
     0% {
         transform: scale(1);
@@ -876,6 +938,39 @@ code {
         @media #{$mq-sm} {
             transform: none;
         }
+    }
+}
+
+/* Floating Sponsor Button */
+.sp-float-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 33px;
+    height: 33px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #EA4AAA;
+    color: #ffffff !important;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #EA4AAA;
+        z-index: -1;
+        animation: pulse-ripple 2s 0.5s infinite;
+    }
+
+    &:hover {
+        opacity: 0.9;
     }
 }
 
