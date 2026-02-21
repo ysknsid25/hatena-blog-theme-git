@@ -5,51 +5,70 @@
     </head>
     <body>
         <div class="float-btn-group">
-            <span class="bookmark-float-item">
+            <span class="hb-float-item">
                 <a
                     href="https://b.hatena.ne.jp/entry/"
-                    class="hatena-bookmark-button"
-                    data-hatena-bookmark-layout="touch-counter"
+                    class="hb-float-btn"
+                    id="hb-float-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     title="このエントリーをはてなブックマークに追加"
                 >
-                    <img
-                        src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-                        alt="このエントリーをはてなブックマークに追加"
-                        width="20"
-                        height="20"
-                        style="border: none"
-                    />
+                    B!
+                    <span class="hb-chip" id="hb-count"></span>
                 </a>
             </span>
             <a
                 href="https://blog.hatena.ne.jp/ysknsid25/karanohako.hatenablog.jp/subscribe?utm_source=blogs_entry_footer&utm_campaign=subscribe_blog&utm_medium=button&utm_content=float"
-                class="subscribe-float-btn"
+                class="reader-float-btn"
             >
                 読者になりませんか？👀
             </a>
         </div>
-        <script
-            type="text/javascript"
-            src="https://b.st-hatena.com/js/bookmark_button.js"
-            charset="utf-8"
-            async="async"
-        ></script>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const targets = document.querySelectorAll(
                     '[name="subscribe-original"], .hatena-module-profile, .hatena-module-category, .hatena-module-archive, .hatena-module-links, .hatena-module-recent-entries',
                 );
                 const group = document.querySelector(".float-btn-group");
-                const bookmarkItem = document.querySelector(
-                    ".bookmark-float-item",
-                );
+                const hbItem = document.querySelector(".hb-float-item");
+                const hbLink = document.getElementById("hb-float-link");
+                const hbCount = document.getElementById("hb-count");
                 const visibleElements = new Set();
 
                 const isEntryPage =
                     document.querySelectorAll(".entry").length === 1;
 
-                if (bookmarkItem && isEntryPage) {
-                    bookmarkItem.classList.add("entry-visible");
+                if (hbItem && isEntryPage) {
+                    hbItem.classList.add("entry-visible");
+
+                    // ブックマークリンクのURLを現在ページに設定
+                    const pageUrl = window.location.href;
+                    if (hbLink) {
+                        hbLink.href =
+                            "https://b.hatena.ne.jp/entry/s/" +
+                            pageUrl.replace(/^https?:\/\//, "");
+                    }
+
+                    // JSONP でブックマーク数を取得
+                    const cbName = "hbCb_" + Date.now();
+                    window[cbName] = function (data) {
+                        if (data && data.count > 0 && hbCount) {
+                            hbCount.textContent = data.count;
+                            hbCount.classList.add("visible");
+                        }
+                        delete window[cbName];
+                        const s = document.getElementById("hb-js");
+                        if (s) s.remove();
+                    };
+                    const script = document.createElement("script");
+                    script.id = "hb-js";
+                    script.src =
+                        "https://b.hatena.ne.jp/entry/jsonlite/?url=" +
+                        encodeURIComponent(pageUrl) +
+                        "&callback=" +
+                        cbName;
+                    document.head.appendChild(script);
                 }
 
                 const showButtons = () => group?.classList.add("visible");
