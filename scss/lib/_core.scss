@@ -271,6 +271,10 @@ h1,h2,h3,h4,h5,h6 {
         max-width: 100%;
         height: auto;
     }
+    u {
+        text-decoration: none;
+        background: linear-gradient(transparent 55%, rgba($highlight, 0.5) 55%);
+    }
     h1,
     h2,
     h3,
@@ -896,4 +900,25 @@ code {
 
 .mermaid {
     background-color: #ffffff !important;
+}
+
+/* 鉛筆アンダーライン */
+.pencil-line {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 108%;
+        height: 3px;
+        background: linear-gradient(
+            to right,
+            rgba($highlight, 0.95),
+            rgba($highlight, 0.95) 65%,
+            rgba($highlight, 0.1)
+        );
+    }
 }
