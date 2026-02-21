@@ -989,6 +989,93 @@ code {
     background-color: #ffffff !important;
 }
 
+/* codoc チップ用スタイル */
+.codoc-entry .codoc-btn {
+    background: $btn !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease;
+}
+.codoc-entry .codoc-btn:hover {
+    background: $btn-hover !important;
+    color: #fff !important;
+}
+
+.codoc-continue::after,
+.codoc-continue::before {
+    background: $text !important;
+}
+.codoc-continue {
+    color: $text !important;
+}
+.codoc-entry .codoc-buy-price {
+    color: $text-header !important;
+}
+.codoc-entry .codoc-support {
+    background: $background !important;
+}
+.codoc-entry .codoc-support .codoc-support-title {
+    color: $text !important;
+}
+
+/* codoc 購読プランのリスト用スタイル */
+.codoc-subscription-list .codoc-btn {
+    background: $btn !important;
+    color: #fff !important;
+}
+.wp-block-codoc-codoc-block .codoc-subscription-list .codoc-btn:hover {
+    background: $btn-hover !important;
+    color: #fff !important;
+}
+.codoc-subscription-price {
+    color: $text-header !important;
+}
+.codoc-subscription-articlelist a {
+    color: $text-header !important;
+}
+.codoc-subscription-articlelist a::before {
+    border-left: 4px solid $text-header !important;
+}
+.codoc-subscription-list li {
+    border-radius: 6px !important;
+}
+
+/* codoc チップボタン用スタイル */
+.codoc-entry .codoc-support .codoc-btn {
+    background: $btn !important;
+    color: #fff !important;
+    border: solid 1px $btn !important;
+}
+.codoc-entry .codoc-support .codoc-btn:hover {
+    background: $btn-hover !important;
+    color: #fff !important;
+    border: solid 1px $btn-hover !important;
+}
+
+/* codoc チップモーダルウィンドウ ボタン用スタイル */
+.modal-container .codoc-btn-buy-bg {
+    background: $btn !important;
+    color: #fff !important;
+    border: solid 1px $btn !important;
+}
+.modal-container .codoc-btn-buy-bg:hover {
+    background: $btn-hover !important;
+    color: #fff !important;
+    border: solid 1px $btn-hover !important;
+}
+.codoc-support-modal-price a {
+    border: 1px solid $btn !important;
+    color: $btn !important;
+}
+.codoc-support-modal-price a:hover {
+    background: $bg-light !important;
+}
+
+/* codoc モーダルウィンドウ内 ボタン用スタイル */
+.modal-container .codoc-btn-buy {
+    color: $btn !important;
+}
+
 /* 鉛筆アンダーライン */
 .pencil-line {
     text-decoration: none;
