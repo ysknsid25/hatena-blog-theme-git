@@ -2,8 +2,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.entry-content a');
 
+    const currentUrl = window.location.href.split('#')[0];
+
     links.forEach(function(link) {
       if (link.closest('.hatena-asin-detail')) {
+          return;
+      }
+      if (link.href.startsWith(currentUrl)) {
           return;
       }
       if(link.href.startsWith('https://d.hatena.ne.jp/keyword')){
