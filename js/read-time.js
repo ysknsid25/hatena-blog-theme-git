@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const readTimeDiv = document.createElement('div');
-            readTimeDiv.className = 'read-time';
+            readTimeDiv.className = 'read-time pencil-line';
             readTimeDiv.innerText = minutes + '分で読めます';
 
             entryDate.appendChild(readTimeDiv);
