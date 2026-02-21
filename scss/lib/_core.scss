@@ -696,7 +696,9 @@ h1,h2,h3,h4,h5,h6 {
     .entry-thumb {
         width: 210px;
         height: 140px;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         @media #{$mq-sm} {
             width: 210px;
             height: 140px;
