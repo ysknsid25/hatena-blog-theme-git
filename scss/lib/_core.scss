@@ -2,9 +2,17 @@ html,
 body {
     font-family: $font-family-base;
     color: $text;
-    background-color: $background;
     line-height: 1.6;
 }
+
+// ── グロー背景 ──────────────────────────────────────────────────────────────
+// backgroundImage は glow-bg.js が動的に書き換える
+// トランジションで滑らかに切り替わるようにする
+html {
+    background-color: $background;
+    transition: background-image 0s; // グラデーション自体はトランジション不可のため JS 側でフェード
+}
+// ────────────────────────────────────────────────────────────────────────────
 a {
     color: $link;
     &:hover {
