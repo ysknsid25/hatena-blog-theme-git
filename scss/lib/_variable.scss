@@ -1,4 +1,5 @@
 // Variables
+@use 'sass:color';
 
 // Font
 $font-family-base: 'Roboto Slab', serif;
@@ -17,7 +18,7 @@ $text-light: #777;
 $text-description: #9a9994; // User requested color
 $text-header: #F14E32;
 $text-code: #4E443C;
-$text-header-symbol-color: lighten($text-header, 10%);
+$text-header-symbol-color: color.adjust($text-header, $lightness: 10%);
 
 // link
 $link: #0388A6;
