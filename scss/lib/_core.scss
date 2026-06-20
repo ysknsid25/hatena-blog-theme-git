@@ -226,10 +226,10 @@ h1,h2,h3,h4,h5,h6 {
         font-size: 2rem;
     }
     a {
-        color: $text; // #4E443C
+        color: $text-header; // #F14E32
         text-decoration: none;
         &:hover {
-            color: $hover;
+            color: darken($text-header, 10%);
             text-decoration: underline;
         }
     }
