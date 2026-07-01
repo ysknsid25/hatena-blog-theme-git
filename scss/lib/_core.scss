@@ -903,6 +903,58 @@ code {
     }
 }
 
+/* GitHub User Group CTA */
+.gug-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border: 2px solid $text-header;
+    padding: 24px;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 600px;
+    font-family:
+        "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Meiryo",
+        sans-serif;
+}
+
+.gug-image-wrapper {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 220px;
+}
+
+.gug-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.gug-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.gug-text {
+    color: $text;
+    line-height: 1.8;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+@media #{$mq-xs} {
+    .gug-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gug-image-wrapper {
+        width: 70%;
+    }
+}
+
 @keyframes pulse-ripple {
     0% {
         transform: scale(1);
