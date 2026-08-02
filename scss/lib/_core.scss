@@ -164,6 +164,53 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0.5em 0 0;
     color: $text-header;
 }
+.newsletter-banner {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    z-index: 1000;
+
+    @media #{$mq-sm} {
+        left: auto;
+        right: 30px;
+        bottom: 30px;
+        transform: none;
+    }
+}
+.newsletter-banner-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 33px;
+    padding: 0 20px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff !important;
+    background-color: $btn;
+    text-decoration: none;
+    border-radius: 16.5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 16.5px;
+        background-color: $btn;
+        z-index: -1;
+        animation: pulse-ripple-pill 2s infinite;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+}
 
 /* ヘッダ画像を設定したとき */
 .header-image-enable {
