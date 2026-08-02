@@ -954,6 +954,13 @@ code {
     }
 }
 
+/* GitHub Sponsor Button */
+.github-sponsor-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
 /* GitHub User Group CTA */
 .gug-container {
     display: flex;
