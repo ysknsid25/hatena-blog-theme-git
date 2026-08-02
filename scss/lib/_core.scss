@@ -242,7 +242,9 @@ h1,h2,h3,h4,h5,h6 {
 .entry {
     position: relative;
     margin-bottom: 2em; // Reduced from 4em
-    background-color: $bg-content; // White background for article
+    background-color: rgba($bg-content, 0.4); // Frosted glass card
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 2em; // Added padding to separate text from edge
     border-radius: 5px; // Optional: slight rounding
 }
@@ -750,7 +752,9 @@ h1,h2,h3,h4,h5,h6 {
         margin-left: auto;
         margin-right: auto;
         line-height: 1.6; // Align with body line-height
-        background-color: $bg-content; // White background
+        background-color: rgba($bg-content, 0.4); // Frosted glass card
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         padding: 1.5em; // Added padding
         border-radius: 5px; // Rounded corners
     }
