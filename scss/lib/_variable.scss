@@ -34,6 +34,11 @@ $btn-hover: darken($btn, 5%);
 // highlight (蛍光ペン)
 $highlight: #FFE566;
 
+// sparkle (スクロールプログレスのキラキラ)
+$sparkle-core: #FFC93C; // きらめきの芯
+$sparkle-glow: #FFF3C4; // ハイライト
+$sparkle-duration: 2.4s; // 光の帯が一周する時間
+
 // Media Queries
 $mq-xs: "(max-width: 480px)";
 $mq-sm: "(min-width: 768px)";

@@ -1277,6 +1277,80 @@ code {
     }
 }
 
+/* 30% 〜 : パーセント表記を光の帯が横切る */
+.scroll-progress.sparkle-text .scroll-progress-label:not(.completed) {
+    background-image: linear-gradient(
+        100deg,
+        $text 0%,
+        $text 38%,
+        $sparkle-glow 47%,
+        $sparkle-core 50%,
+        $sparkle-glow 53%,
+        $text 62%,
+        $text 100%
+    );
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: scroll-progress-shimmer $sparkle-duration linear infinite;
+}
+
+/* 60% 〜 : 読み終えたぶんのバー全体がまとめて明滅する */
+.scroll-progress.sparkle-bar .scroll-progress-bar {
+    animation: scroll-progress-bar-glow $sparkle-duration ease-in-out infinite;
+}
+
+/* 100% : バー一周 + ロケットの見た目はそのままに、円全体を光の帯が横切る */
+.scroll-progress.sparkle-all::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background-image: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 42%,
+        rgba($sparkle-glow, 0.75) 50%,
+        rgba(255, 255, 255, 0) 58%
+    );
+    background-size: 300% 100%;
+    background-position: 100% 0;
+    pointer-events: none;
+    animation: scroll-progress-shimmer $sparkle-duration linear infinite;
+}
+
+@keyframes scroll-progress-shimmer {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes scroll-progress-bar-glow {
+    0%,
+    100% {
+        stroke: $btn;
+        filter: drop-shadow(0 0 1px rgba($sparkle-core, 0.3));
+    }
+    50% {
+        stroke: $sparkle-core;
+        filter: drop-shadow(0 0 4px rgba($sparkle-core, 0.8));
+    }
+}
+
+/* アニメーションを控える設定では光り続けないようにする */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress.sparkle-text .scroll-progress-label:not(.completed),
+    .scroll-progress.sparkle-bar .scroll-progress-bar,
+    .scroll-progress.sparkle-all::after {
+        animation: none;
+    }
+}
+
 .mermaid {
     background-color: #ffffff !important;
 }
